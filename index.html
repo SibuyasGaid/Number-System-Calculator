@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number System Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Homepage -->
+        <div id="homepage" class="page active">
+            <div class="homepage-content">
+                <h1>🔢 Number System Converter</h1>
+                <p>Welcome to the ultimate number system conversion and secret code tool!</p>
+                <button class="btn home-btn" onclick="showMenu()">Enter Application</button>
+            </div>
+        </div>
+
+        <!-- Menu -->
+        <div id="menu" class="page">
+            <h1>Number System Converter</h1>
+            <h2>Select an Option</h2>
+            <div class="menu-grid">
+                <button class="menu-btn" onclick="showPage('decimal-convert')">1. Convert Decimal to Binary/Octal/Hex</button>
+                <button class="menu-btn" onclick="showPage('to-decimal')">2. Convert to Decimal</button>
+                <button class="menu-btn" onclick="showPage('add-numbers')">3. Add Numbers in Any Base</button>
+                <button class="menu-btn" onclick="showPage('encode')">4. Secret Code Encoder</button>
+                <button class="menu-btn" onclick="showPage('decode')">5. Secret Code Decoder</button>
+                <button class="menu-btn" onclick="showPage('homepage')">6. Exit to Homepage</button>
+            </div>
+        </div>
+
+        <!-- Option 1: Convert Decimal -->
+        <div id="decimal-convert" class="page">
+            <button class="btn back-btn" onclick="showMenu()">← Back to Menu</button>
+            <h2>Convert Decimal to Binary/Octal/Hex</h2>
+            <div class="input-group">
+                <label>Enter Decimal Number:</label>
+                <input type="number" id="decimal-input" placeholder="Enter decimal number">
+            </div>
+            <button class="btn" onclick="convertFromDecimal()">Convert</button>
+            <div id="decimal-result" class="result" style="display: none;"></div>
+        </div>
+
+        <!-- Option 2: Convert to Decimal -->
+        <div id="to-decimal" class="page">
+            <button class="btn back-btn" onclick="showMenu()">← Back to Menu</button>
+            <h2>Convert to Decimal</h2>
+            <div class="form-row">
+                <div class="input-group">
+                    <label>Select Base:</label>
+                    <select id="base-select">
+                        <option value="2">Binary</option>
+                        <option value="8">Octal</option>
+                        <option value="16">Hexadecimal</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Enter Number:</label>
+                    <input type="text" id="base-input" placeholder="Enter number">
+                </div>
+            </div>
+            <button class="btn" onclick="convertToDecimal()">Convert to Decimal</button>
+            <div id="to-decimal-result" class="result" style="display: none;"></div>
+        </div>
+
+        <!-- Option 3: Add Numbers -->
+        <div id="add-numbers" class="page">
+            <button class="btn back-btn" onclick="showMenu()">← Back to Menu</button>
+            <h2>Add Two Numbers in Any Base</h2>
+            <div class="form-row">
+                <div class="input-group">
+                    <label>First Number Base:</label>
+                    <select id="first-base">
+                        <option value="10">Decimal</option>
+                        <option value="2">Binary</option>
+                        <option value="8">Octal</option>
+                        <option value="16">Hexadecimal</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>First Number:</label>
+                    <input type="text" id="first-number" placeholder="Enter first number">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-group">
+                    <label>Second Number Base:</label>
+                    <select id="second-base">
+                        <option value="10">Decimal</option>
+                        <option value="2">Binary</option>
+                        <option value="8">Octal</option>
+                        <option value="16">Hexadecimal</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Second Number:</label>
+                    <input type="text" id="second-number" placeholder="Enter second number">
+                </div>
+            </div>
+            <button class="btn" onclick="addNumbers()">Add Numbers</button>
+            <div id="add-result" class="result" style="display: none;"></div>
+        </div>
+
+        <!-- Option 4: Encode -->
+        <div id="encode" class="page">
+            <button class="btn back-btn" onclick="showMenu()">← Back to Menu</button>
+            <h2>Secret Code Encoder</h2>
+            <div class="input-group">
+                <label>Enter Message:</label>
+                <textarea id="encode-message" rows="3" placeholder="Enter your message to encode"></textarea>
+            </div>
+            <div class="input-group">
+                <label>Enter Secret Key (Decimal Number):</label>
+                <input type="number" id="encode-key" placeholder="Enter secret key">
+            </div>
+            <button class="btn" onclick="encodeMessage()">Encode Message</button>
+            <div id="encode-result" class="result" style="display: none;"></div>
+        </div>
+
+        <!-- Option 5: Decode -->
+        <div id="decode" class="page">
+            <button class="btn back-btn" onclick="showMenu()">← Back to Menu</button>
+            <h2>Secret Code Decoder</h2>
+            <div class="input-group">
+                <label>Enter Encoded Values (comma-separated decimals or hex):</label>
+                <textarea id="decode-message" rows="3" placeholder="Enter encoded values (e.g., 104,104,111 or 68,68,6f)"></textarea>
+            </div>
+            <div class="input-group">
+                <label>Enter Secret Key (Decimal Number):</label>
+                <input type="number" id="decode-key" placeholder="Enter secret key">
+            </div>
+            <button class="btn" onclick="decodeMessage()">Decode Message</button>
+            <div id="decode-result" class="result" style="display: none;"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
